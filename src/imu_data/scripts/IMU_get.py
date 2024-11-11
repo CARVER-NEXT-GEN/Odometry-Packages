@@ -3,7 +3,7 @@
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import QoSProfile, ReliabilityPolicy
-from std_msgs.msg import Float32MultiArray
+from std_msgs.msg import Float64MultiArray
 from sensor_msgs.msg import Imu, MagneticField
 
 class IMUgetNode(Node):
@@ -41,7 +41,7 @@ class IMUgetNode(Node):
         }
 
         # Subscription to the cubemx_imu_data topic
-        self.create_subscription(Float32MultiArray, "cubemx_imu_data", self.imu_data_callback, qos_profile)
+        self.create_subscription(Float64MultiArray, "cubemx_imu_data", self.imu_data_callback, qos_profile)
 
     def imu_data_callback(self, msg):
         # Populate the sensor_data structure with data from the message

@@ -40,8 +40,8 @@ class IMUgetNode(Node):
             }
         }
 
-        # Subscription to the IMU_DATA topic
-        self.create_subscription(Float32MultiArray, "IMU_DATA", self.imu_data_callback, qos_profile)
+        # Subscription to the cubemx_imu_data topic
+        self.create_subscription(Float32MultiArray, "cubemx_imu_data", self.imu_data_callback, qos_profile)
 
     def imu_data_callback(self, msg):
         # Populate the sensor_data structure with data from the message
